@@ -1,0 +1,154 @@
+/* ============================================================
+   AXYS3D — Page-Specific Layouts
+   Overrides and special layout patterns for individual pages.
+   ============================================================ */
+
+/* ── Homepage Hero Grid ────────────────────────────────────── */
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.9fr);
+  align-items: center;
+  gap: clamp(2rem, 6vw, 6rem);
+  min-height: min(50rem, calc(100svh - 4.75rem));
+}
+.hero-copy { padding-block: 3rem; }
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+.media-hero { min-height: 34rem; }
+
+/* ── Homepage Proof Grid ───────────────────────────────────── */
+.hero-proof-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  margin: 2.5rem 0 0;
+  padding: 0;
+}
+.hero-proof-grid div { padding: 1rem 1rem 0 0; }
+.hero-proof-grid div + div {
+  border-left: 1px solid var(--line);
+  padding-left: 1rem;
+}
+.hero-proof-grid dt {
+  color: var(--accent-700);
+  font-family: var(--font-technical);
+  font-size: 0.67rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.hero-proof-grid dd {
+  color: var(--ink-700);
+  font-size: 0.82rem;
+  line-height: 1.45;
+  margin: 0.45rem 0 0;
+}
+
+/* ── 12-column Grid Helpers ────────────────────────────────── */
+.system-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1rem;
+}
+.span-4 { grid-column: span 4; }
+.span-5 { grid-column: span 5; }
+.span-7 { grid-column: span 7; }
+.span-8 { grid-column: span 8; }
+
+/* ── Stats (dark band) ─────────────────────────────────────── */
+.stat {
+  grid-column: span 3;
+  border-left: 1px solid var(--line-dark);
+  padding: 1rem 1.5rem;
+}
+.stat strong {
+  display: block;
+  font-family: var(--font-editorial);
+  font-size: clamp(2.75rem, 6vw, 5rem);
+  font-weight: 400;
+  line-height: 1;
+}
+.stat span { color: #b9c1bf; font-size: 0.875rem; }
+
+/* ── Service Card (homepage) ───────────────────────────────── */
+.service-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  grid-column: span 4;
+  min-height: 18rem;
+}
+
+/* ── Service Detail List (services page) ───────────────────── */
+.service-detail-list { display: grid; }
+.service-detail-list > article {
+  display: grid;
+  grid-template-columns: minmax(18rem, 0.75fr) minmax(22rem, 1.25fr);
+  gap: clamp(2rem, 7vw, 7rem);
+  border-top: 1px solid var(--line);
+  padding: 4rem 0;
+}
+.service-title {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.service-title h2 {
+  font-family: var(--font-editorial);
+  font-size: var(--step-3);
+  font-weight: 400;
+  line-height: 1;
+  margin: 0;
+}
+.buyer-need { font-size: var(--step-1); }
+
+/* ── Split Intro ───────────────────────────────────────────── */
+.split-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(20rem, 0.75fr);
+  align-items: start;
+  gap: clamp(2rem, 7vw, 7rem);
+}
+
+/* ── Responsive overrides ──────────────────────────────────── */
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    padding-block: 4rem;
+  }
+  .media-hero { min-height: 27rem; }
+
+  .service-card { grid-column: span 6; }
+  .span-4, .span-5, .span-7, .span-8 { grid-column: 1 / -1; }
+  .stat { grid-column: span 6; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 800px) {
+  .split-intro,
+  .service-detail-list > article {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .media-hero { min-height: 22rem; }
+  .service-card,
+  .project-card,
+  .stat { grid-column: 1 / -1; }
+  .stat {
+    border-left: 0;
+    border-top: 1px solid var(--line-dark);
+    padding-inline: 0;
+  }
+  .hero-proof-grid { grid-template-columns: 1fr; }
+  .hero-proof-grid div { padding: 1rem 0; }
+  .hero-proof-grid div + div {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+    padding-left: 0;
+  }
+}
