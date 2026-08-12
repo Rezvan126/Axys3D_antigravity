@@ -3,44 +3,6 @@
    Refined Architectural UI Components & Official Brand Assets.
    ============================================================ */
 
-/* ── Brand Splash Introduction ────────────────────────────── */
-#axys-splash {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  background: #111716;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
-  opacity: 1;
-  visibility: visible;
-  transition: opacity 0.6s var(--ease-editorial), visibility 0.6s var(--ease-editorial);
-  pointer-events: auto;
-}
-#axys-splash.splash-hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-.splash-logo-wrap {
-  width: min(16rem, 70vw);
-}
-.splash-logo-wrap img,
-.splash-logo-wrap svg {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-.splash-sub {
-  color: var(--ink-400);
-  font-family: var(--font-technical);
-  font-size: var(--step--1);
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-
 /* ── Buttons ───────────────────────────────────────────────── */
 .button {
   display: inline-flex;
@@ -133,13 +95,13 @@
   pointer-events: none;
 }
 
-/* ── Site Header & Official Logo ────────────────────────────── */
+/* ── Site Header & Official Supplied Logo ──────────────────── */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 100;
   border-bottom: 1px solid var(--line);
-  background: color-mix(in srgb, var(--paper-50) 92%, transparent);
+  background: color-mix(in srgb, var(--paper-50) 94%, transparent);
   backdrop-filter: blur(20px) saturate(1.2);
   -webkit-backdrop-filter: blur(20px) saturate(1.2);
 }
@@ -158,11 +120,15 @@
   text-decoration: none;
   flex-shrink: 0;
 }
-.site-logo img,
-.site-logo svg {
-  height: 1.85rem;
+.site-logo img {
+  height: 2.1rem;
   width: auto;
   display: block;
+  object-fit: contain;
+}
+/* Invert white text logo on light header background */
+.site-header .site-logo img {
+  filter: invert(0.92) hue-rotate(180deg);
 }
 
 .desktop-nav {
@@ -927,9 +893,9 @@
   gap: 2rem;
 }
 .footer-grid .site-logo { margin-bottom: 1.25rem; }
-.footer-grid .site-logo img,
-.footer-grid .site-logo svg {
+.footer-grid .site-logo img {
   height: 2.1rem;
+  filter: none;
 }
 .footer-grid .lede {
   font-size: 0.875rem;
@@ -1051,9 +1017,8 @@
     line-height: 0.98;
   }
 
-  .site-logo img,
-  .site-logo svg {
-    height: 1.6rem;
+  .site-logo img {
+    height: 1.7rem;
   }
 
   .pipeline { grid-template-columns: 1fr; }
@@ -1095,7 +1060,6 @@
    Reduced motion
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {
-  #axys-splash { transition-duration: 0.01ms !important; }
   .button:hover,
   .audience-card:hover,
   .service-card-link:hover { transform: none; }
