@@ -11,19 +11,29 @@
   const mobilePanel = document.getElementById('mobile-navigation');
 
   if (menuBtn && mobilePanel) {
+    function toggleMenu(open) {
+      const isOpen = open !== undefined ? open : mobilePanel.getAttribute('data-open') !== 'true';
+      mobilePanel.setAttribute('data-open', String(isOpen));
+      menuBtn.setAttribute('aria-expanded', String(isOpen));
+      menuBtn.textContent = isOpen ? 'Close' : 'Menu';
+    }
+
     menuBtn.addEventListener('click', function () {
-      const isOpen = mobilePanel.getAttribute('data-open') === 'true';
-      mobilePanel.setAttribute('data-open', String(!isOpen));
-      menuBtn.setAttribute('aria-expanded', String(!isOpen));
-      menuBtn.textContent = isOpen ? 'Menu' : 'Close';
+      toggleMenu();
+    });
+
+    // Close on link click
+    const mobileLinks = mobilePanel.querySelectorAll('a');
+    mobileLinks.forEach(function (link) {
+      link.addEventListener('click', function () {
+        toggleMenu(false);
+      });
     });
 
     // Close on Escape
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && mobilePanel.getAttribute('data-open') === 'true') {
-        mobilePanel.setAttribute('data-open', 'false');
-        menuBtn.setAttribute('aria-expanded', 'false');
-        menuBtn.textContent = 'Menu';
+        toggleMenu(false);
         menuBtn.focus();
       }
     });
@@ -37,6 +47,7 @@
   const projectCards = document.querySelectorAll('.project-card');
   const resultsCount = document.querySelector('.work-results-bar p');
   const clearBtn = document.querySelector('.work-results-bar .text-button');
+  const emptyState = document.querySelector('.empty-state');
 
   function getFilterValues() {
     const values = {};
@@ -84,7 +95,7 @@
         show = false;
       }
 
-      // Publication status filter
+      // Safe publication status filter
       if (filters['public / nda-safe status']) {
         const val = filters['public / nda-safe status'];
         if (val === 'demonstration' && !badgeText.includes('demonstration')) show = false;
@@ -98,6 +109,10 @@
 
     if (resultsCount) {
       resultsCount.innerHTML = '<strong>' + visible + '</strong> case ' + (visible === 1 ? 'study' : 'studies');
+    }
+
+    if (emptyState) {
+      emptyState.style.display = visible === 0 ? 'block' : 'none';
     }
 
     if (clearBtn) {
