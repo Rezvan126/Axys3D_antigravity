@@ -1,6 +1,6 @@
 /* ============================================================
    AXYS3D — Base Styles
-   Reset, global defaults, typography.
+   Reset, typography rhythm, global architectural defaults.
    ============================================================ */
 
 /* ── Reset ─────────────────────────────────────────────────── */
@@ -18,8 +18,6 @@ html {
   max-width: 100%;
   overflow-x: hidden;
 }
-
-/* Inter loaded via <link> in HTML <head> — see preconnect + stylesheet */
 
 body {
   background: var(--paper-50);
@@ -64,12 +62,12 @@ summary { display: list-item; }
   left: 1rem;
   z-index: 200;
   background: var(--white);
-  border: 2px solid var(--ink-950);
-  padding: 0.6rem 1rem;
-  font-size: 0.875rem;
+  border: 1.5px solid var(--ink-950);
+  padding: 0.5rem 0.875rem;
+  font-size: 0.8125rem;
   font-weight: 600;
   transform: translateY(-200%);
-  transition: transform var(--duration) var(--ease-out);
+  transition: transform var(--duration-fast) var(--ease-editorial);
 }
 .skip-link:focus {
   transform: translateY(0);
@@ -94,8 +92,9 @@ summary { display: list-item; }
   font-family: var(--font-editorial);
   font-size: var(--step-4);
   font-weight: 400;
-  line-height: 0.94;
-  letter-spacing: -0.04em;
+  font-style: normal;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
   text-wrap: balance;
 }
 
@@ -103,8 +102,9 @@ summary { display: list-item; }
   font-family: var(--font-editorial);
   font-size: var(--step-3);
   font-weight: 400;
-  line-height: 1.05;
-  letter-spacing: -0.025em;
+  font-style: normal;
+  line-height: 1.04;
+  letter-spacing: -0.02em;
   text-wrap: balance;
 }
 
@@ -112,11 +112,12 @@ summary { display: list-item; }
   font-family: var(--font-editorial);
   font-size: var(--step-2);
   font-weight: 400;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
 }
 
 .eyebrow {
+  font-family: var(--font-ui);
   font-size: var(--step--1);
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -129,7 +130,7 @@ summary { display: list-item; }
   max-width: 44rem;
   color: var(--ink-700);
   font-size: var(--step-1);
-  line-height: 1.55;
+  line-height: 1.5;
 }
 
 .technical {
@@ -145,18 +146,17 @@ summary { display: list-item; }
 .mt-lg  { margin-top: 2rem; }
 .mt-xl  { margin-top: 3rem; }
 .mt-2xl { margin-top: clamp(2.5rem, 5vw, 4rem); }
-.mb-sm  { margin-bottom: 0.75rem; }
-.mb-md  { margin-bottom: 1.25rem; }
 
 /* ── Max-widths ────────────────────────────────────────────── */
-.max-w-narrow   { max-width: 38rem; }
+.max-w-narrow   { max-width: 36rem; }
 .max-w-body     { max-width: 44rem; }
-.max-w-heading  { max-width: 52rem; }
+.max-w-heading  { max-width: 54rem; }
 .max-w-display  { max-width: 66rem; }
 
 /* ── Body text ─────────────────────────────────────────────── */
 .body-text {
   color: var(--ink-700);
+  font-size: var(--step-0);
   line-height: 1.6;
 }
 

@@ -1,10 +1,32 @@
 /* ============================================================
    AXYS3D — Main JavaScript
-   Mobile navigation toggle + Work page filter logic.
+   Brand Intro Splash + Mobile Nav + Work Filters.
    ============================================================ */
 
 (function () {
   'use strict';
+
+  /* ── Brand Splash Controller (Phase 8) ─────────────────── */
+  const splash = document.getElementById('axys-splash');
+  if (splash) {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const splashSeen = sessionStorage.getItem('axys_splash_seen') === 'true';
+
+    if (splashSeen || prefersReducedMotion) {
+      splash.style.display = 'none';
+      splash.remove();
+    } else {
+      setTimeout(function () {
+        splash.classList.add('splash-hidden');
+        sessionStorage.setItem('axys_splash_seen', 'true');
+        setTimeout(function () {
+          if (splash.parentNode) {
+            splash.parentNode.removeChild(splash);
+          }
+        }, 650);
+      }, 1600);
+    }
+  }
 
   /* ── Mobile Navigation ─────────────────────────────────── */
   const menuBtn = document.querySelector('.menu-button');

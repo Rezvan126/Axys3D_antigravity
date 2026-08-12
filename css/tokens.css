@@ -1,60 +1,62 @@
 /* ============================================================
    AXYS3D — Design Tokens
-   Extracted from prototype, cleaned and documented.
+   Refined for Architectural & Editorial Excellence.
    ============================================================ */
 
 :root {
-  /* ── Ink (dark neutrals) ─────────────────────────────────── */
+  /* ── Ink (dark architectural neutrals) ───────────────────── */
   --ink-950: #111716;
   --ink-900: #18201f;
-  --ink-800: #2a3432;
-  --ink-700: #3e4a48;
-  --ink-500: #64706d;
-  --ink-400: #8a9593;
+  --ink-800: #26312f;
+  --ink-700: #3b4745;
+  --ink-500: #626e6b;
+  --ink-400: #889491;
 
-  /* ── Paper (warm light backgrounds) ──────────────────────── */
+  /* ── Paper (warm architectural background) ───────────────── */
   --paper-50:  #f6f5f0;
   --paper-100: #eceae3;
   --paper-200: #dfddd4;
-  --white:     #fff;
+  --white:     #ffffff;
 
-  /* ── Accent (muted architectural teal) ───────────────────── */
+  /* ── Accent (architectural amber & muted teal) ────────────── */
+  --amber-500:  #ec9d23;
   --accent-700: #24525c;
   --accent-600: #296069;
   --accent-500: #2e6672;
   --accent-100: #d9e7e8;
 
-  /* ── Lines / borders ─────────────────────────────────────── */
+  /* ── Lines & structural borders ─────────────────────────── */
   --line:      #c9cdc6;
   --line-dark: #38413f;
 
-  /* ── Typography ──────────────────────────────────────────── */
-  --font-ui:        "Inter", Arial, Helvetica, sans-serif;
-  --font-editorial: Georgia, "Times New Roman", serif;
-  --font-technical: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  /* ── Typography Pairing ─────────────────────────────────── */
+  --font-editorial: "Newsreader", Georgia, "Times New Roman", serif;
+  --font-ui:        "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-technical: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 
   /* ── Fluid type scale ────────────────────────────────────── */
-  --step--2: 0.6875rem;                            /* 11px — small labels */
+  --step--2: 0.6875rem;                            /* 11px — micro technical metadata */
   --step--1: 0.75rem;                              /* 12px — labels, technical */
   --step-0:  1rem;                                 /* 16px — body */
-  --step-1:  clamp(1.125rem, 0.95rem + 0.5vw, 1.3125rem);  /* 18–21px — lede */
-  --step-2:  clamp(1.5rem, 1.15rem + 1vw, 2rem);           /* 24–32px — heading-sm */
-  --step-3:  clamp(1.75rem, 1.2rem + 1.8vw, 3rem);         /* 28–48px — heading-lg */
-  --step-4:  clamp(2.75rem, 1.8rem + 4vw, 6.5rem);         /* 44–104px — display */
+  --step-1:  clamp(1.125rem, 0.95rem + 0.6vw, 1.375rem);   /* 18–22px — lede */
+  --step-2:  clamp(1.5rem, 1.15rem + 1.2vw, 2.25rem);      /* 24–36px — heading-sm */
+  --step-3:  clamp(1.875rem, 1.2rem + 2.2vw, 3.5rem);      /* 30–56px — heading-lg */
+  --step-4:  clamp(2.85rem, 1.7rem + 4.5vw, 6.75rem);      /* 46–108px — display */
 
-  /* ── Spacing & layout ────────────────────────────────────── */
-  --gutter:       clamp(1.25rem, 4vw, 2.5rem);
-  --content-max:  80rem;
-  --section-space: clamp(4rem, 8vw, 8rem);
+  /* ── Spacing & layout rhythm ─────────────────────────────── */
+  --gutter:        clamp(1.25rem, 4vw, 2.5rem);
+  --content-max:   78rem;
+  --section-space: clamp(4.5rem, 9vw, 8.5rem);
 
   /* ── Border radii ────────────────────────────────────────── */
-  --radius-control: 0.5rem;
-  --radius-card:    0.75rem;
-  --radius-media:   1rem;
+  --radius-control: 0.375rem;
+  --radius-card:    0.5rem;
+  --radius-media:   0.75rem;
 
-  /* ── Transitions ─────────────────────────────────────────── */
-  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-  --duration: 0.2s;
+  /* ── Transitions & Animation ─────────────────────────────── */
+  --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast:  0.18s;
+  --duration-base:  0.28s;
 
   /* ── Focus ring ──────────────────────────────────────────── */
   --focus-ring: 0 0 0 2px var(--paper-50), 0 0 0 4px var(--accent-500);
