@@ -14,7 +14,10 @@ html {
   scroll-padding-top: 6rem;
   -webkit-text-size-adjust: 100%;
   tab-size: 4;
+  hanging-punctuation: first last;
 }
+
+/* Inter loaded via <link> in HTML <head> — see preconnect + stylesheet */
 
 body {
   background: var(--paper-50);
@@ -47,6 +50,7 @@ summary { display: list-item; }
 :focus-visible {
   box-shadow: var(--focus-ring);
   outline: none;
+  border-radius: 2px;
 }
 
 /* ── Skip link ─────────────────────────────────────────────── */
@@ -58,9 +62,10 @@ summary { display: list-item; }
   background: var(--white);
   border: 2px solid var(--ink-950);
   padding: 0.6rem 1rem;
-  font-weight: 700;
+  font-size: 0.875rem;
+  font-weight: 600;
   transform: translateY(-200%);
-  transition: transform 0.16s;
+  transition: transform var(--duration) var(--ease-out);
 }
 .skip-link:focus {
   transform: translateY(0);
@@ -74,7 +79,7 @@ summary { display: list-item; }
 
 /* ── Sections ──────────────────────────────────────────────── */
 .section {
-  padding-block: clamp(4.5rem, 9vw, 9rem);
+  padding-block: var(--section-space);
 }
 .section-rule {
   border-top: 1px solid var(--line);
@@ -85,32 +90,39 @@ summary { display: list-item; }
   font-family: var(--font-editorial);
   font-size: var(--step-4);
   font-weight: 400;
-  line-height: 0.92;
-  letter-spacing: -0.052em;
-  margin: 0;
+  line-height: 0.94;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
 }
 
 .heading {
   font-family: var(--font-editorial);
   font-size: var(--step-3);
   font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.035em;
-  margin: 0;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.heading-sm {
+  font-family: var(--font-editorial);
+  font-size: var(--step-2);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
 .eyebrow {
   font-size: var(--step--1);
-  font-weight: 700;
-  letter-spacing: 0.16em;
+  font-weight: 600;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--accent-700);
-  line-height: 1.2;
-  margin: 0;
+  line-height: 1;
 }
 
 .lede {
-  max-width: 42rem;
+  max-width: 44rem;
   color: var(--ink-700);
   font-size: var(--step-1);
   line-height: 1.55;
@@ -118,8 +130,30 @@ summary { display: list-item; }
 
 .technical {
   font-family: var(--font-technical);
-  font-size: 0.75rem;
+  font-size: var(--step--1);
   letter-spacing: 0.04em;
+}
+
+/* ── Vertical spacing helpers ──────────────────────────────── */
+.mt-xs  { margin-top: 0.5rem; }
+.mt-sm  { margin-top: 0.75rem; }
+.mt-md  { margin-top: 1.25rem; }
+.mt-lg  { margin-top: 2rem; }
+.mt-xl  { margin-top: 3rem; }
+.mt-2xl { margin-top: clamp(2.5rem, 5vw, 4rem); }
+.mb-sm  { margin-bottom: 0.75rem; }
+.mb-md  { margin-bottom: 1.25rem; }
+
+/* ── Max-widths ────────────────────────────────────────────── */
+.max-w-narrow   { max-width: 38rem; }
+.max-w-body     { max-width: 44rem; }
+.max-w-heading  { max-width: 52rem; }
+.max-w-display  { max-width: 66rem; }
+
+/* ── Body text ─────────────────────────────────────────────── */
+.body-text {
+  color: var(--ink-700);
+  line-height: 1.6;
 }
 
 /* ── Reduced motion ────────────────────────────────────────── */
