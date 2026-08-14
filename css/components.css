@@ -1069,8 +1069,7 @@
 .site-header { background: rgba(247,247,244,.96); }
 .header-row { height: 4.35rem; }
 .site-logo img, .footer-grid .site-logo img { height: 1.82rem; filter: none; }
-/* Preserve the supplied logo file; only its light-background presentation changes. */
-.site-logo img[src="/assets/logo.png"] { filter: brightness(0) saturate(100%); }
+/* Official logo asset natively contains #111716 ink text + #ec9d23 golden dot. */
 .desktop-nav { gap: clamp(1rem, 2vw, 1.75rem); }
 .nav-link { font-size: .75rem; letter-spacing: .025em; }
 .button { min-height: 2.6rem; border-radius: 0; padding: .62rem 1.05rem; font-size: .75rem; letter-spacing: .035em; text-transform: uppercase; }
