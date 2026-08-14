@@ -127,9 +127,7 @@
   object-fit: contain;
 }
 /* Invert white text logo on light header background */
-.site-header .site-logo img {
-  filter: invert(0.92) hue-rotate(180deg);
-}
+.site-header .site-logo img { filter: none; }
 
 .desktop-nav {
   display: flex;
@@ -1065,4 +1063,76 @@
   .service-card-link:hover { transform: none; }
   .text-link:hover .arrow,
   .service-card-link:hover .service-card-cta .arrow { transform: none; }
+}
+
+/* ── 2026 refinement: disciplined, sans-led studio system ── */
+.site-header { background: rgba(247,247,244,.96); }
+.header-row { height: 4.35rem; }
+.site-logo img, .footer-grid .site-logo img { height: 1.82rem; filter: none; }
+/* Preserve the supplied logo file; only its light-background presentation changes. */
+.site-logo img[src="/assets/logo.png"] { filter: brightness(0) saturate(100%); }
+.desktop-nav { gap: clamp(1rem, 2vw, 1.75rem); }
+.nav-link { font-size: .75rem; letter-spacing: .025em; }
+.button { min-height: 2.6rem; border-radius: 0; padding: .62rem 1.05rem; font-size: .75rem; letter-spacing: .035em; text-transform: uppercase; }
+.button-secondary { border-color: var(--ink-950); }
+.page-hero { padding-top: clamp(4rem, 7vw, 6.25rem); padding-bottom: clamp(2.75rem, 5vw, 4.25rem); }
+.home-hero { padding-top: clamp(5rem, 10vw, 8rem); padding-bottom: clamp(4rem, 7vw, 6.25rem); }
+.page-hero .display { max-width: 15ch; margin-top: .8rem; }
+.home-hero .display { max-width: 11ch; }
+.hero-statement { max-width: 40rem; margin-top: 1.5rem; font-size: clamp(1rem, .94rem + .3vw, 1.18rem); line-height: 1.6; }
+.eyebrow { color: var(--ink-700); font-size: .68rem; letter-spacing: .15em; }
+.section-header { margin-bottom: clamp(1.75rem, 3vw, 2.75rem); }
+.card, .audience-card, .contact-form, .portfolio-notice { border-radius: 0; box-shadow: none; }
+.card, .audience-card { padding: clamp(1.25rem, 2vw, 1.75rem); }
+.card h3, .audience-card h3, .project-meta h3, .industry-card h2, .process-stack h2, .principle-grid h2, .job-list h2, .portfolio-notice h2, .empty-state h2 { font-family: var(--font-ui); font-weight: 600; letter-spacing: -.035em; }
+.service-matrix h3, .service-title h2, .insight-list h2 { font-family: var(--font-ui); font-weight: 600; letter-spacing: -.045em; }
+.badge, .project-card-tags span { border-radius: 0; font-family: var(--font-ui); font-size: .64rem; letter-spacing: .06em; padding: .25rem .42rem; }
+.audience-grid, .industry-grid, .job-list { gap: 0; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.audience-card, .industry-card, .job-list > * { border: 0; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.audience-card:hover { border-color: var(--line); box-shadow: none; background: var(--paper-100); }
+.project-grid { gap: clamp(2.25rem, 4vw, 4rem); }
+.project-media { margin-bottom: 1rem; border: 1px solid var(--line); }
+.media-frame { border-radius: 0; }
+.media-caption { border-radius: 0; font-size: .6rem; }
+.project-meta { display: flex; justify-content: space-between; align-items: start; gap: 1rem; }
+.project-card-tags { margin-top: .6rem; }
+.cta-block { border-radius: 0; background: var(--ink-950); color: var(--paper-50); }
+.cta-block .heading, .cta-block .eyebrow { color: var(--paper-50); }
+.cta-block .button-primary { background: var(--paper-50); color: var(--ink-950); }
+.pipeline, .portfolio-notice { border-radius: 0; }
+.site-footer { margin-top: clamp(4rem, 7vw, 6.5rem); background: var(--white); padding-block: clamp(2.75rem, 5vw, 4.5rem); }
+.footer-grid { grid-template-columns: 1.7fr .65fr .65fr; gap: clamp(2rem, 5vw, 5rem); }
+.footer-grid .site-logo { margin-bottom: 1rem; }
+.footer-grid .lede { max-width: 28rem; font-size: .82rem; line-height: 1.55; }
+.footer-email-link { font-family: var(--font-ui); font-size: .8rem; color: var(--ink-950); letter-spacing: 0; }
+.footer-note { font-size: .68rem; line-height: 1.5; }
+
+/* The portfolio is a short, curated set—not a database. */
+.work-index { margin-top: clamp(2rem, 4vw, 3rem); }
+.work-intro { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; border-top: 1px solid var(--line); padding-top: .9rem; margin-bottom: 2rem; }
+.work-intro p { color: var(--ink-500); font-size: .8rem; }
+
+/* The supplied animation is presented as supplied, without artificial effects. */
+.splash-screen { position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center; background: var(--paper-50); transition: opacity .45s ease, visibility .45s ease; }
+.splash-screen.is-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+.splash-screen video { width: min(17rem, 62vw); height: auto; }
+
+@media (max-width: 800px) {
+  .footer-grid { grid-template-columns: 1.25fr .75fr; }
+  .footer-grid > :first-child { grid-column: 1 / -1; padding-bottom: 1.5rem; border-bottom: 1px solid var(--line); }
+}
+@media (max-width: 600px) {
+  .header-row { height: 4rem; }
+  .site-logo img, .footer-grid .site-logo img { height: 1.55rem; }
+  .page-hero .display, .home-hero .display { max-width: 12ch; }
+  .home-hero { padding-top: 4.5rem; }
+  .hero-statement { font-size: 1rem; }
+  .project-meta { display: block; }
+  .project-meta .badge { margin-top: .75rem; }
+  .audience-grid, .industry-grid, .job-list { border-left: 0; }
+  .audience-card, .industry-card, .job-list > * { border-right: 0; }
+  .footer-grid { grid-template-columns: 1fr; gap: 1.75rem; }
+  .footer-grid > :first-child { grid-column: auto; }
+  .work-intro { display: block; }
+  .work-intro p { margin-top: .4rem; }
 }

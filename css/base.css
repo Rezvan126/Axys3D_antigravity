@@ -91,29 +91,29 @@ summary { display: list-item; }
 .display {
   font-family: var(--font-editorial);
   font-size: var(--step-4);
-  font-weight: 400;
+  font-weight: 500;
   font-style: normal;
   line-height: 0.95;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.055em;
   text-wrap: balance;
 }
 
 .heading {
   font-family: var(--font-editorial);
   font-size: var(--step-3);
-  font-weight: 400;
+  font-weight: 500;
   font-style: normal;
   line-height: 1.04;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.04em;
   text-wrap: balance;
 }
 
 .heading-sm {
   font-family: var(--font-editorial);
   font-size: var(--step-2);
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.08;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.03em;
 }
 
 .eyebrow {
