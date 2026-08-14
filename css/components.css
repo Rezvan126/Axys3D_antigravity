@@ -1114,7 +1114,7 @@
 /* The supplied animation is presented as supplied, without artificial effects. */
 .splash-screen { position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center; background: var(--paper-50); transition: opacity .45s ease, visibility .45s ease; }
 .splash-screen.is-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
-.splash-screen video { width: min(17rem, 62vw); height: auto; }
+.splash-screen canvas { width: min(20rem, 68vw); height: auto; display: block; border: 0; outline: none; }
 
 @media (max-width: 800px) {
   .footer-grid { grid-template-columns: 1.25fr .75fr; }
