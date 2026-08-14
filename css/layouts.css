@@ -71,10 +71,133 @@
   gap: clamp(2rem, 6vw, 6rem);
 }
 
+/* ── 3-Layer Production Capabilities Layout ────────────────── */
+.layer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+.layer-card {
+  border: 1px solid var(--line-dark);
+  padding: clamp(1.5rem, 2.5vw, 2.25rem);
+  background: var(--ink-950);
+  color: var(--paper-50);
+  display: flex;
+  flex-direction: column;
+}
+.layer-card .card-index {
+  color: var(--amber-500);
+  font-family: var(--font-technical);
+  font-size: var(--step--1);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.5rem;
+}
+.layer-card h3 {
+  font-family: var(--font-ui);
+  font-size: var(--step-2);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  color: var(--paper-50);
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid var(--line-dark);
+  padding-bottom: 0.75rem;
+}
+.layer-items {
+  display: grid;
+  gap: 1rem;
+}
+.layer-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 0.875rem;
+}
+.layer-item:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+.layer-item h4 {
+  font-family: var(--font-ui);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--paper-50);
+  margin-bottom: 0.25rem;
+}
+.layer-item p {
+  color: var(--ink-400);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+/* ── 3-Column Proof Stats Grid ─────────────────────────────── */
+.proof-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--line-dark);
+  border-bottom: 1px solid var(--line-dark);
+}
+.proof-stat {
+  padding: clamp(1.75rem, 3.5vw, 3rem) clamp(1.25rem, 2vw, 2rem);
+  border-right: 1px solid var(--line-dark);
+}
+.proof-stat:last-child {
+  border-right: 0;
+}
+.proof-stat strong {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: clamp(2.85rem, 5.5vw, 4.5rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--paper-50);
+  margin-bottom: 0.5rem;
+}
+.proof-stat span {
+  color: var(--ink-400);
+  font-family: var(--font-technical);
+  font-size: var(--step--1);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ── 4-Stage Process Grid ─────────────────────────────────── */
+.process-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+.process-grid-4 article {
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: clamp(1.5rem, 2.5vw, 2.25rem);
+  display: flex;
+  flex-direction: column;
+}
+.process-grid-4 .step-num {
+  color: var(--accent-700);
+  font-family: var(--font-technical);
+  font-size: var(--step--1);
+  margin-bottom: 1.25rem;
+}
+.process-grid-4 h3 {
+  font-family: var(--font-ui);
+  font-size: var(--step-2);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  margin-bottom: 0.6rem;
+}
+.process-grid-4 p {
+  color: var(--ink-700);
+  font-size: 0.875rem;
+  line-height: 1.55;
+}
+
 /* ── Responsive overrides ──────────────────────────────────── */
 @media (max-width: 900px) {
   .span-4, .span-5, .span-7, .span-8 { grid-column: 1 / -1; }
   .stat { grid-column: span 6; }
+  .layer-grid { grid-template-columns: 1fr; }
+  .process-grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 800px) {
@@ -82,6 +205,9 @@
   .service-detail-list > article {
     grid-template-columns: 1fr;
   }
+  .proof-grid { grid-template-columns: 1fr; }
+  .proof-stat { border-right: 0; border-bottom: 1px solid var(--line-dark); }
+  .proof-stat:last-child { border-bottom: 0; }
 }
 
 @media (max-width: 600px) {
@@ -91,4 +217,6 @@
     border-top: 1px solid var(--line-dark);
     padding-inline: 0;
   }
+  .process-grid-4 { grid-template-columns: 1fr; border-left: 0; }
+  .process-grid-4 article { border-right: 0; }
 }

@@ -123,7 +123,8 @@ summary { display: list-item; }
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--accent-700);
-  line-height: 1;
+  line-height: 1.4;
+  word-break: break-word;
 }
 
 .lede {
